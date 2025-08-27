@@ -1,0 +1,287 @@
+{
+  "services": [
+    {
+      "id": "vm-1",
+      "title": "Virtual Machines — General purpose",
+      "summary": "General purpose virtual machines with balanced CPU-to-memory ratio for most workloads.",
+      "useCases": ["Web servers", "Small databases", "Development environments"]
+    },
+    {
+      "id": "vm-2",
+      "title": "Virtual Machines — Compute optimized",
+      "summary": "High CPU performance for compute-bound applications and HPC workloads.",
+      "useCases": ["Batch processing", "Scientific compute", "Rendering"]
+    },
+    {
+      "id": "storage-blob",
+      "title": "Blob Storage",
+      "summary": "Massively scalable object storage for unstructured data, with tiering and lifecycle policies.",
+      "useCases": ["Backups", "Media", "Data lakes"]
+    },
+    {
+      "id": "db-sql",
+      "title": "Managed SQL Database",
+      "summary": "Fully managed relational database with automated backups and patching.",
+      "useCases": ["Transactional systems", "Reporting", "ERP"]
+    },
+    {
+      "id": "cosmos",
+      "title": "Global NoSQL (Document DB)",
+      "summary": "Multi-region, low-latency NoSQL database with tunable consistency levels.",
+      "useCases": ["IoT", "Gaming", "Personalization"]
+    },
+    {
+      "id": "k8s",
+      "title": "Managed Kubernetes",
+      "summary": "Fully managed Kubernetes with integrated monitoring and autoscaling.",
+      "useCases": ["Microservices", "CI/CD", "Containers"]
+    },
+    {
+      "id": "ai-service",
+      "title": "AI & Machine Learning Platform",
+      "summary": "Model training, inference, and MLOps workflows with GPU acceleration.",
+      "useCases": ["Computer vision", "NLP", "Recommendation engines"]
+    },
+    {
+      "id": "cdn",
+      "title": "Content Delivery Network",
+      "summary": "Global CDN for low-latency content delivery and edge caching.",
+      "useCases": ["Static assets", "Media streaming", "Edge compute"]
+    },
+    {
+      "id": "identity",
+      "title": "Identity & Access Management",
+      "summary": "Single sign-on, policies, and RBAC with enterprise-grade security.",
+      "useCases": ["Employee SSO", "Service principals", "Conditional access"]
+    },
+    {
+      "id": "monitoring",
+      "title": "Monitoring & Observability",
+      "summary": "Logs, metrics, tracing, and integrated dashboards for full-stack visibility.",
+      "useCases": ["Alerting", "Incident response", "Capacity planning"]
+    },
+    {
+      "id": "iot",
+      "title": "IoT Hub",
+      "summary": "Device management, ingestion, and edge processing for IoT deployments.",
+      "useCases": ["Telemetry", "Remote management", "Edge analytics"]
+    },
+    {
+      "id": "functions",
+      "title": "Serverless Functions",
+      "summary": "Event-driven compute that scales automatically and charges only for usage.",
+      "useCases": ["Webhooks", "Data processing", "Glue code"]
+    },
+    {
+      "id": "devops",
+      "title": "CI / CD Pipelines",
+      "summary": "Hosted build agents, pipelines, and artifacts to automate delivery.",
+      "useCases": ["Testing", "Automated deploys", "Release gates"]
+    },
+    {
+      "id": "backup",
+      "title": "Backup & Site Recovery",
+      "summary": "Enterprise backups, snapshot policies, and disaster recovery orchestration.",
+      "useCases": ["BC/DR", "Point-in-time restore", "Cross-region recovery"]
+    },
+    {
+      "id": "network",
+      "title": "Virtual Network & Load Balancing",
+      "summary": "Global networking with private links and advanced load balancing features.",
+      "useCases": ["VPC peering", "Ingress traffic", "Hybrid connectivity"]
+    },
+    {
+      "id": "stream",
+      "title": "Event Streaming",
+      "summary": "Managed event streaming platform for high-throughput data pipelines.",
+      "useCases": ["Telemetry pipelines", "Event-driven architectures", "Log centralization"]
+    },
+    {
+      "id": "analytics",
+      "title": "Analytics & Data Warehouse",
+      "summary": "Scale-out analytics engine for large-scale data processing and BI.",
+      "useCases": ["ETL pipelines", "Ad-hoc analysis", "Business intelligence"]
+    },
+    {
+      "id": "security-center",
+      "title": "Cloud Security Center",
+      "summary": "Security posture management, compliance reporting, and threat detection.",
+      "useCases": ["Audit reporting", "Vulnerability scanning", "Security automation"]
+    },
+    {
+      "id": "edge",
+      "title": "Edge & CDN Compute",
+      "summary": "Run functions or containers at the edge to reduce latency and offload origin.",
+      "useCases": ["Personalization", "A/B testing", "Low-latency APIs"]
+    },
+    {
+      "id": "hybrid",
+      "title": "Hybrid Connectivity",
+      "summary": "Seamless hybrid networking and data sync between on-prem and cloud.",
+      "useCases": ["Migrations", "Hybrid apps", "Data replication"]
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": "blog-01",
+      "title": "Announcing our new managed Kubernetes offering",
+      "excerpt": "We launched a fully managed Kubernetes service with integrated autoscaling, node pools, and built-in security.",
+      "published": "2025-07-10"
+    },
+    {
+      "id": "blog-02",
+      "title": "Cost optimization patterns for cloud-native apps",
+      "excerpt": "Save money by rightsizing, reserved instances, and adopting serverless where appropriate.",
+      "published": "2025-06-24"
+    },
+    {
+      "id": "blog-03",
+      "title": "How we built a global CDN with 50+ PoPs",
+      "excerpt": "Under the hood technical deep-dive into our CDN architecture and routing strategies.",
+      "published": "2025-05-14"
+    },
+    {
+      "id": "blog-04",
+      "title": "Designing secure defaults for cloud platforms",
+      "excerpt": "Security-first design choices that make it easier to be secure by default.",
+      "published": "2025-04-30"
+    },
+    {
+      "id": "blog-05",
+      "title": "Real-time analytics at scale",
+      "excerpt": "Architecting event-driven pipelines for sub-second analytics and dashboards.",
+      "published": "2025-03-18"
+    },
+    {
+      "id": "blog-06",
+      "title": "MLOps practices for production systems",
+      "excerpt": "From data versioning to continuous training — practical tips for MLOps teams.",
+      "published": "2025-03-01"
+    },
+    {
+      "id": "blog-07",
+      "title": "The future of serverless containers",
+      "excerpt": "Why serverless containers are the next step for developer productivity and portability.",
+      "published": "2025-02-11"
+    },
+    {
+      "id": "blog-08",
+      "title": "A quickstart to our API gateway",
+      "excerpt": "How to configure routes, policies, and rate limits with our API gateway in minutes.",
+      "published": "2025-01-20"
+    },
+    {
+      "id": "blog-09",
+      "title": "Hybrid cloud migration patterns",
+      "excerpt": "Tactics for moving critical workloads to the cloud while minimizing downtime.",
+      "published": "2024-12-05"
+    },
+    {
+      "id": "blog-10",
+      "title": "Protecting your data with encryption best practices",
+      "excerpt": "An overview of encryption at rest, key management, and secure default configurations.",
+      "published": "2024-10-16"
+    },
+    {
+      "id": "blog-11",
+      "title": "Edge computing use cases in retail",
+      "excerpt": "How retail companies use edge computing for personalization and low-latency services.",
+      "published": "2024-09-27"
+    },
+    {
+      "id": "blog-12",
+      "title": "Scaling distributed caches effectively",
+      "excerpt": "Techniques for cache invalidation, replication, and consistency at scale.",
+      "published": "2024-08-02"
+    }
+  ],
+  "testimonials": [
+    {
+      "author": "Aisha Rahman",
+      "role": "CTO",
+      "company": "Acme Retail",
+      "quote": "Migrating to the platform reduced our costs by 38% and improved latency for our customers globally."
+    },
+    {
+      "author": "Mateo García",
+      "role": "VP Engineering",
+      "company": "FinTech Solutions",
+      "quote": "Built-in security and identity controls made compliance straightforward across multiple regions."
+    },
+    {
+      "author": "Ling Wei",
+      "role": "Head of Data",
+      "company": "MedAnalytics",
+      "quote": "The analytics platform allowed us to process terabytes of data daily with consistent performance."
+    },
+    {
+      "author": "John Miller",
+      "role": "DevOps Lead",
+      "company": "SmartLogix",
+      "quote": "CI/CD pipelines and infrastructure automation shaved weeks off our release cycle."
+    },
+    {
+      "author": "Sara Novak",
+      "role": "Product Manager",
+      "company": "EduFlow",
+      "quote": "Student-facing features launched faster thanks to serverless functions and managed databases."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What regions are supported?",
+      "a": "We support 50+ regions globally with additional regions being added regularly. Check the regions map in the docs for the latest list."
+    },
+    {
+      "q": "How is pricing calculated?",
+      "a": "Pricing is per-resource with options for pay-as-you-go, reserved instances, and committed use discounts. Use the pricing calculator in docs to estimate costs."
+    },
+    {
+      "q": "Can I connect my on-premises network?",
+      "a": "Yes — hybrid connectivity options include VPN, ExpressRoute-equivalent private links, and edge connectors for seamless integration."
+    },
+    {
+      "q": "What support plans are available?",
+      "a": "We offer Developer, Standard, and Premium support tiers. Enterprise customers can opt for dedicated technical account management."
+    },
+    {
+      "q": "How do I get started?",
+      "a": "Sign up for a free account, follow the Getting Started guide in Docs, and use our quickstart templates to deploy a sample app."
+    }
+  ]
+}
+````markdown name=README.md
+```markdown
+# Tq Demo — Azure-like Static Template
+
+This repository contains a responsive HTML/CSS/JS marketing template inspired by Azure's marketing pages. It includes long demo content and a JSON file with full demo data to populate sections (solutions, blog posts, testimonials, FAQs).
+
+Files included:
+- `index.html` — main demo page
+- `styles.css` — styling and responsive rules
+- `scripts.js` — small client-side script to load `demo-data.json` and populate sections
+- `demo-data.json` — long demo dataset (services, blog posts, testimonials, faqs)
+
+How to use
+1. Clone or download the repo.
+2. Serve the files from a static server (some browsers block fetch requests from `file://`):
+   - Quick Python server:
+     - Python 3: `python -m http.server 8000`
+     - Python 2: `python -m SimpleHTTPServer 8000`
+   - Or use VS Code Live Server extension.
+3. Open `http://localhost:8000` in your browser.
+
+Customize
+- Edit `demo-data.json` to change the populated content.
+- Update `styles.css` to match your brand colors and typography.
+- Replace `index.html` markup sections or replicate components to build additional pages.
+
+Accessibility & performance
+- This demo uses semantic elements (header, nav, section).
+- For production, optimize images, add meta tags for sharing, and implement server-side rendering if required.
+
+License
+- This is a demo template. Use freely for prototypes and demos. No warranty — inspect before production use.
+
+Want changes?
+- If you'd like variants (dark mode, additional pages, Tailwind/Bootstrap versions, or a React/Vue port), tell me what you prefer and I can generate the files.

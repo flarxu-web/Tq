@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Azure-like Template — Tq Demo</title>
+  <meta name="description" content="A responsive HTML/CSS/JS template inspired by Azure marketing pages. Includes long demo content and sample data." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Tq<span class="brand-accent">Cloud</span></a>
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#docs">Docs</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a class="btn-outline" href="#get-started">Get started</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Build, manage, and scale with confidence</h1>
+        <p class="lead">Enterprise-ready cloud platform with secure, scalable services and predictable pricing. This demo page contains long sample content and abundant demo data to show structure and layout.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="#get-started">Start free</a>
+          <a class="btn-secondary" href="#pricing">See pricing</a>
+        </div>
+        <ul class="hero-stats" aria-hidden="true">
+          <li><strong>99.99%</strong><span>uptime</span></li>
+          <li><strong>50+</strong><span>global regions</span></li>
+          <li><strong>200+</strong><span>managed services</span></li>
+        </ul>
+      </div>
+      <div class="hero-media" id="hero-media">
+        <div class="product-card">
+          <h3>Secure Cloud Virtual Machines</h3>
+          <p>Fast, consistent compute with predictable pricing and built-in security.</p>
+          <div class="product-meta">
+            <span class="chip">IaaS</span>
+            <span class="chip">SLA</span>
+            <span class="chip">Hybrid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">Platform features</h2>
+      <p class="section-sub">Everything you need to run modern applications — built-in security, global scale, and predictable pricing.</p>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Secure by default</h3>
+          <p>Integrated identity, encryption at rest and in transit, and continuous threat protection.</p>
+        </article>
+        <article class="card">
+          <h3>Global reach</h3>
+          <p>Deploy across multiple regions with built-in redundancy and global network backbone.</p>
+        </article>
+        <article class="card">
+          <h3>Managed services</h3>
+          <p>Databases, storage, AI, streaming, and developer tools with first-class support.</p>
+        </article>
+        <article class="card">
+          <h3>Hybrid & edge</h3>
+          <p>Extend cloud services to the edge or connect to on-prem environments seamlessly.</p>
+        </article>
+        <article class="card">
+          <h3>Cost optimization</h3>
+          <p>Tools and guidance to minimize costs and maximize ROI with reserved instances and autoscaling.</p>
+        </article>
+        <article class="card">
+          <h3>Developer productivity</h3>
+          <p>CI/CD integrations, local emulators, and SDKs for multiple languages and frameworks.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions populated from demo data -->
+  <section id="solutions" class="section muted">
+    <div class="container">
+      <h2 class="section-title">Solutions</h2>
+      <p class="section-sub">Pre-built solution templates for common workloads — available out-of-the-box.</p>
+
+      <div id="solutions-list" class="grid grid-4">
+        <!-- JS will populate long demo solution cards here from demo-data.json -->
+      </div>
+
+      <div class="more-link">
+        <a href="#docs" class="link">Explore all solutions →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2 class="section-title">Pricing</h2>
+      <p class="section-sub">Simple and predictable. Pay-as-you-go with discounts for reserved capacity.</p>
+
+      <div class="grid grid-3">
+        <div class="pricing-card">
+          <h3>Developer</h3>
+          <p class="price">$0</p>
+          <p class="meta">Great for experimenting and small projects</p>
+          <ul class="benefits">
+            <li>1 vCPU, 1 GB RAM</li>
+            <li>Shared support</li>
+            <li>Limited SLA</li>
+          </ul>
+          <a class="btn-outline" href="#get-started">Start free</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <h3>Business</h3>
+          <p class="price">$199 / mo</p>
+          <p class="meta">Production-ready with guaranteed SLA</p>
+          <ul class="benefits">
+            <li>4 vCPU, 16 GB RAM</li>
+            <li>Standard support</li>
+            <li>99.9% SLA</li>
+          </ul>
+          <a class="btn-primary" href="#get-started">Buy now</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <p class="price">Contact us</p>
+          <p class="meta">Custom pricing, support, and onboarding</p>
+          <ul class="benefits">
+            <li>Dedicated instances</li>
+            <li>Premium support</li>
+            <li>Custom SLAs</li>
+          </ul>
+          <a class="btn-outline" href="#contact">Contact sales</a>
+        </div>
+      </div>
+
+      <div class="pricing-notes">
+        <p><strong>Estimate:</strong> Use the pricing calculator in docs to estimate costs for real workloads.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Long demo blog posts -->
+  <section id="blog" class="section muted">
+    <div class="container">
+      <h2 class="section-title">Blog & announcements</h2>
+      <p class="section-sub">Latest news, product updates, and deep dives from our engineering blog.</p>
+
+      <div id="blog-list" class="grid grid-3">
+        <!-- JS will populate blog posts -->
+      </div>
+
+      <div class="more-link">
+        <a href="#blog-archive" class="link">View blog archive →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <h2 class="section-title">Customer stories</h2>
+      <p class="section-sub">Real customers, real results.</p>
+
+      <div id="testimonials-carousel" class="carousel">
+        <!-- JS will populate testimonial slides -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Docs & FAQ -->
+  <section id="docs" class="section muted">
+    <div class="container docs-grid">
+      <div>
+        <h2 class="section-title">Documentation</h2>
+        <p class="section-sub">Guides, quickstarts, and API reference to get you productive quickly.</p>
+        <ul class="doc-list">
+          <li><a href="#getting-started">Getting started guide</a></li>
+          <li><a href="#deploy">Deploy your first app</a></li>
+          <li><a href="#security">Security best practices</a></li>
+          <li><a href="#api">API reference</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Frequently asked questions</h3>
+        <div id="faqs">
+          <!-- JS will inject several FAQ items from demo-data.json -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <a class="brand" href="#">Tq<span class="brand-accent">Cloud</span></a>
+        <p class="muted">© 2025 TqCloud — Demo template. All content is sample data for demonstration purposes.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#docs">Docs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#legal">Legal</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container small muted center">
+      Built with ❤️ for demo purposes — inspired by Azure marketing pages.
+    </div>
+  </footer>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>
