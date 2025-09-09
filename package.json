@@ -1,0 +1,9 @@
+{
+  "name": "figma-plugin",
+  "version": "1.0.0",
+  "description": "Gemini powered screenshot to Figma plugin",
+  "scripts": {
+    "test": "echo 'No tests specified'"
+  },
+  "license": "MIT"
+}
