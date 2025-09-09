@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="password" id="apiKey" placeholder="Gemini API Key" />
+    <button id="saveKey">Save Key</button>
+    <br/>
+    <input type="file" id="file" accept="image/*" />
+    <button id="convert">Convert</button>
+    <script>
+      const apiKeyInput = document.getElementById('apiKey');
+      const fileInput = document.getElementById('file');
+
+      document.getElementById('saveKey').onclick = () => {
+        parent.postMessage({ pluginMessage: { type: 'save-key', key: apiKeyInput.value } }, '*');
+      };
+
+      document.getElementById('convert').onclick = () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          const base64 = reader.result.split(',')[1];
+          parent.postMessage({ pluginMessage: { type: 'process-image', imageBytes: base64 } }, '*');
+        };
+        reader.readAsDataURL(file);
+      };
+    </script>
+  </body>
+</html>
