@@ -3,257 +3,287 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Azure-like Template — Tq Demo</title>
-  <meta name="description" content="A responsive HTML/CSS/JS template inspired by Azure marketing pages. Includes long demo content and sample data." />
+  <title>Crowd Sourcing Platform Dashboard</title>
+  <meta name="description" content="Interactive dashboard that transforms public transport feedback into actionable insights." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha512-1wTgH0rFQ1Zsa1+l1I7IuP89xDSHLVQQP4SRrped1IovnHgkmHGawEq+y3OCAXoTr4+gG1MZQ8Y7rY7+AAQESA==" crossorigin="" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Top navigation -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#">Tq<span class="brand-accent">Cloud</span></a>
-      <nav class="nav" aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#solutions">Solutions</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#docs">Docs</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a class="btn-outline" href="#get-started">Get started</a></li>
+  <header class="app-header">
+    <div class="header-primary">
+      <div class="header-copy">
+        <span class="eyebrow">Crowd Sourcing Platform</span>
+        <h1>Public Transport Experience Intelligence</h1>
+        <p>
+          Collect, analyse, and act on rider feedback in real time. This dashboard converts community submissions into
+          a unified view of satisfaction, accessibility, and operational performance across the network.
+        </p>
+      </div>
+      <div class="header-highlight">
+        <h2>Project Milestones</h2>
+        <ol class="milestone-list">
           <li>
-            <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
+            <span>Plan</span>
+            <p>Defined business objectives and translated them into wireframes for the dashboard experience.</p>
           </li>
-        </ul>
-      </nav>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+          <li>
+            <span>Build</span>
+            <p>Delivered the AI models and automated data pipeline that transform raw feedback into structured insight.</p>
+          </li>
+          <li>
+            <span>Test</span>
+            <p>Completed SIT for data flows and visuals, followed by UAT to validate the solution with business stakeholders.</p>
+          </li>
+          <li>
+            <span>Deploy</span>
+            <p>Launched the platform, provided production handover, and equipped the client with supporting documentation.</p>
+          </li>
+        </ol>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1>Build, manage, and scale with confidence</h1>
-        <p class="lead">Enterprise-ready cloud platform with secure, scalable services and predictable pricing. This demo page contains long sample content and abundant demo data to show structure and layout.</p>
-        <div class="hero-ctas">
-          <a class="btn-primary" href="#get-started">Start free</a>
-          <a class="btn-secondary" href="#pricing">See pricing</a>
+  <main class="app-main">
+    <section class="filters-panel" aria-label="Dashboard filters">
+      <div class="filters-heading">
+        <h2>Filter the feedback</h2>
+        <div class="filter-actions">
+          <button id="clear-filters" class="ghost-button" type="button">Reset filters</button>
         </div>
-        <ul class="hero-stats" aria-hidden="true">
-          <li><strong>99.99%</strong><span>uptime</span></li>
-          <li><strong>50+</strong><span>global regions</span></li>
-          <li><strong>200+</strong><span>managed services</span></li>
-        </ul>
       </div>
-      <div class="hero-media" id="hero-media">
-        <div class="product-card">
-          <h3>Secure Cloud Virtual Machines</h3>
-          <p>Fast, consistent compute with predictable pricing and built-in security.</p>
-          <div class="product-meta">
-            <span class="chip">IaaS</span>
-            <span class="chip">SLA</span>
-            <span class="chip">Hybrid</span>
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label for="channel-filter">Channel</label>
+          <select id="channel-filter"></select>
+        </div>
+        <div class="filter-group">
+          <label for="purpose-filter">Purpose of commute</label>
+          <select id="purpose-filter"></select>
+        </div>
+        <div class="filter-group">
+          <label for="year-filter">Year</label>
+          <select id="year-filter"></select>
+        </div>
+        <div class="filter-group">
+          <label for="month-filter">Month</label>
+          <select id="month-filter"></select>
+        </div>
+        <div class="filter-group">
+          <label for="community-filter">Community</label>
+          <select id="community-filter"></select>
+        </div>
+        <div class="filter-group">
+          <label for="route-filter">Route</label>
+          <input id="route-filter" type="text" placeholder="Search route" />
+        </div>
+        <div class="filter-group">
+          <label for="stop-filter">Stop</label>
+          <input id="stop-filter" type="text" placeholder="Search stop" />
+        </div>
+        <div class="filter-group">
+          <label for="category-filter">Categorisation</label>
+          <select id="category-filter"></select>
+        </div>
+        <div class="filter-group">
+          <label for="sentiment-filter">Sentiment</label>
+          <select id="sentiment-filter"></select>
+        </div>
+        <div class="filter-group">
+          <label for="device-filter">Device ID</label>
+          <input id="device-filter" type="text" placeholder="Lookup device" />
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="tablist" role="tablist" aria-label="Dashboard views">
+        <button type="button" class="tab active" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-tab="analysis">Analysis</button>
+      </div>
+
+      <section id="overview" class="tab-panel active" role="tabpanel" aria-labelledby="overview">
+        <div class="kpi-grid">
+          <article class="card kpi">
+            <h3>Total feedbacks</h3>
+            <p class="kpi-value" id="total-feedback">0</p>
+            <p class="kpi-sub" id="total-feedback-sub">Across all selected filters</p>
+          </article>
+          <article class="card kpi">
+            <h3>Feedbacks with comments</h3>
+            <p class="kpi-value" id="comment-feedback">0</p>
+            <p class="kpi-sub">Entries containing written rider feedback.</p>
+          </article>
+          <article class="card kpi">
+            <h3>Sentiment mix</h3>
+            <div class="sentiment-row" id="sentiment-mix"></div>
+            <p class="kpi-sub">Positive, neutral, and negative share of selected feedback.</p>
+          </article>
+          <article class="card kpi">
+            <h3>Languages detected</h3>
+            <p class="kpi-value" id="language-count">0</p>
+            <p class="kpi-sub">Distinct languages used across the filtered comments.</p>
+          </article>
+        </div>
+
+        <div class="overview-grid">
+          <article class="card">
+            <header class="card-header">
+              <h3>Happiness meter</h3>
+              <p>Overall rider positivity score.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="happiness-meter"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card-header">
+              <h3>Sentiment distribution</h3>
+              <p>Share of positive, neutral, and negative feedback.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="sentiment-chart"></canvas>
+            </div>
+          </article>
+          <article class="card wide">
+            <header class="card-header">
+              <h3>Feedback categorisation by month</h3>
+              <p>Monthly trend of key topics raised by riders.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="categorisation-chart"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card-header">
+              <h3>People of Determination</h3>
+              <p>Share of submissions from riders with accessibility requirements.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="pod-chart"></canvas>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="analysis" class="tab-panel" role="tabpanel" aria-labelledby="analysis">
+        <div class="analysis-grid">
+          <article class="card">
+            <header class="card-header">
+              <h3>Route sentiment</h3>
+              <p>Compare route performance by rider sentiment.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="route-sentiment-chart"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card-header">
+              <h3>Route categorisation</h3>
+              <p>Top feedback themes for each route.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="route-category-chart"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card-header">
+              <h3>Location sentiment</h3>
+              <p>Sentiment mix for key origin and destination communities.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="location-sentiment-chart"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card-header">
+              <h3>Location categorisation</h3>
+              <p>Feedback themes tied to each community.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="location-category-chart"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card-header">
+              <h3>Stop sentiment</h3>
+              <p>Identify stops with positive or negative rider sentiment.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="stop-sentiment-chart"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <header class="card-header">
+              <h3>Stop categorisation</h3>
+              <p>Issues and compliments collected at each stop.</p>
+            </header>
+            <div class="chart-wrapper">
+              <canvas id="stop-category-chart"></canvas>
+            </div>
+          </article>
+        </div>
+
+        <div class="map-grid">
+          <article class="card map-card">
+            <header class="card-header">
+              <div>
+                <h3>Community cluster map</h3>
+                <p>Click a community to focus on its feedback. Colours reflect the dominant sentiment.</p>
+              </div>
+              <div class="toggle-group" role="group" aria-label="Community view">
+                <label><input type="radio" name="community-view" value="origin" checked /> Origins</label>
+                <label><input type="radio" name="community-view" value="destination" /> Destinations</label>
+              </div>
+            </header>
+            <div id="community-map" class="map"></div>
+          </article>
+          <article class="card map-card">
+            <header class="card-header">
+              <div>
+                <h3>Feedback scatter map</h3>
+                <p>Shift + drag to draw a selection box and filter the dashboard to that geography.</p>
+              </div>
+              <button id="clear-area" class="ghost-button" type="button">Clear area selection</button>
+            </header>
+            <div id="scatter-map" class="map"></div>
+          </article>
+        </div>
+
+        <article class="card table-card">
+          <header class="card-header">
+            <div>
+              <h3>Detailed feedback</h3>
+              <p id="table-caption">Showing 0 feedback entries.</p>
+            </div>
+          </header>
+          <div class="table-wrapper">
+            <table id="feedback-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Channel</th>
+                  <th>Purpose</th>
+                  <th>Route</th>
+                  <th>Stop</th>
+                  <th>Community</th>
+                  <th>Sentiment</th>
+                  <th>Category</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="section">
-    <div class="container">
-      <h2 class="section-title">Platform features</h2>
-      <p class="section-sub">Everything you need to run modern applications — built-in security, global scale, and predictable pricing.</p>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Secure by default</h3>
-          <p>Integrated identity, encryption at rest and in transit, and continuous threat protection.</p>
         </article>
-        <article class="card">
-          <h3>Global reach</h3>
-          <p>Deploy across multiple regions with built-in redundancy and global network backbone.</p>
-        </article>
-        <article class="card">
-          <h3>Managed services</h3>
-          <p>Databases, storage, AI, streaming, and developer tools with first-class support.</p>
-        </article>
-        <article class="card">
-          <h3>Hybrid & edge</h3>
-          <p>Extend cloud services to the edge or connect to on-prem environments seamlessly.</p>
-        </article>
-        <article class="card">
-          <h3>Cost optimization</h3>
-          <p>Tools and guidance to minimize costs and maximize ROI with reserved instances and autoscaling.</p>
-        </article>
-        <article class="card">
-          <h3>Developer productivity</h3>
-          <p>CI/CD integrations, local emulators, and SDKs for multiple languages and frameworks.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+      </section>
+    </section>
+  </main>
 
-  <!-- Solutions populated from demo data -->
-  <section id="solutions" class="section muted">
-    <div class="container">
-      <h2 class="section-title">Solutions</h2>
-      <p class="section-sub">Pre-built solution templates for common workloads — available out-of-the-box.</p>
-
-      <div id="solutions-list" class="grid grid-4">
-        <!-- JS will populate long demo solution cards here from demo-data.json -->
-      </div>
-
-      <div class="more-link">
-        <a href="#docs" class="link">Explore all solutions →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section id="pricing" class="section">
-    <div class="container">
-      <h2 class="section-title">Pricing</h2>
-      <p class="section-sub">Simple and predictable. Pay-as-you-go with discounts for reserved capacity.</p>
-
-      <div class="grid grid-3">
-        <div class="pricing-card">
-          <h3>Developer</h3>
-          <p class="price">$0</p>
-          <p class="meta">Great for experimenting and small projects</p>
-          <ul class="benefits">
-            <li>1 vCPU, 1 GB RAM</li>
-            <li>Shared support</li>
-            <li>Limited SLA</li>
-          </ul>
-          <a class="btn-outline" href="#get-started">Start free</a>
-        </div>
-
-        <div class="pricing-card featured">
-          <h3>Business</h3>
-          <p class="price">$199 / mo</p>
-          <p class="meta">Production-ready with guaranteed SLA</p>
-          <ul class="benefits">
-            <li>4 vCPU, 16 GB RAM</li>
-            <li>Standard support</li>
-            <li>99.9% SLA</li>
-          </ul>
-          <a class="btn-primary" href="#get-started">Buy now</a>
-        </div>
-
-        <div class="pricing-card">
-          <h3>Enterprise</h3>
-          <p class="price">Contact us</p>
-          <p class="meta">Custom pricing, support, and onboarding</p>
-          <ul class="benefits">
-            <li>Dedicated instances</li>
-            <li>Premium support</li>
-            <li>Custom SLAs</li>
-          </ul>
-          <a class="btn-outline" href="#contact">Contact sales</a>
-        </div>
-      </div>
-
-      <div class="pricing-notes">
-        <p><strong>Estimate:</strong> Use the pricing calculator in docs to estimate costs for real workloads.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Long demo blog posts -->
-  <section id="blog" class="section muted">
-    <div class="container">
-      <h2 class="section-title">Blog & announcements</h2>
-      <p class="section-sub">Latest news, product updates, and deep dives from our engineering blog.</p>
-
-      <div id="blog-list" class="grid grid-3">
-        <!-- JS will populate blog posts -->
-      </div>
-
-      <div class="more-link">
-        <a href="#blog-archive" class="link">View blog archive →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" class="section">
-    <div class="container">
-      <h2 class="section-title">Customer stories</h2>
-      <p class="section-sub">Real customers, real results.</p>
-
-      <div id="testimonials-carousel" class="carousel">
-        <!-- JS will populate testimonial slides -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Docs & FAQ -->
-  <section id="docs" class="section muted">
-    <div class="container docs-grid">
-      <div>
-        <h2 class="section-title">Documentation</h2>
-        <p class="section-sub">Guides, quickstarts, and API reference to get you productive quickly.</p>
-        <ul class="doc-list">
-          <li><a href="#getting-started">Getting started guide</a></li>
-          <li><a href="#deploy">Deploy your first app</a></li>
-          <li><a href="#security">Security best practices</a></li>
-          <li><a href="#api">API reference</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Frequently asked questions</h3>
-        <div id="faqs">
-          <!-- JS will inject several FAQ items from demo-data.json -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-col">
-        <a class="brand" href="#">Tq<span class="brand-accent">Cloud</span></a>
-        <p class="muted">© 2025 TqCloud — Demo template. All content is sample data for demonstration purposes.</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="#solutions">Solutions</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#docs">Docs</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#support">Support</a></li>
-          <li><a href="#legal">Legal</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container small muted center">
-      Built with ❤️ for demo purposes — inspired by Azure marketing pages.
-    </div>
-  </footer>
-
-  <script src="scripts.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-nZ1GDZCBoBPuiGNsq4CPGK/c/pX9nuSUXwxLBzME2YkdE+5EYXPLkZX31lrT7xYu" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha512-vZTG03mQai9nE5X4YDn8ApX2HFqRSbuuSSMzdg3v5M8JrIoVNewc19hXtOD87bwo4VbQJu1NvZ2JgZQGa+QYAw==" crossorigin=""></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
