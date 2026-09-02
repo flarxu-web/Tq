@@ -2,14 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
-  // mobile nav toggle
-  const navToggle = document.querySelector('.nav-toggle');
-  const navList = document.querySelector('.nav-list');
-  navToggle?.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    if (navList) navList.style.display = expanded ? 'none' : 'flex';
-  });
+  initNavToggle();
+  initStartForm();
 
   // fetch demo data
   let data = {};
@@ -26,6 +20,37 @@ document.addEventListener('DOMContentLoaded', async () => {
   populateTestimonials(data.testimonials || []);
   populateFaqs(data.faqs || []);
 });
+
+// Mobile nav: class-based so desktop layout is never overridden by inline styles
+function initNavToggle() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList = document.querySelector('.nav-list');
+  const close = () => {
+    navList?.classList.remove('nav-open');
+    navToggle?.setAttribute('aria-expanded', 'false');
+  };
+  navToggle?.addEventListener('click', () => {
+    const open = navList.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  navList?.addEventListener('click', (e) => {
+    if (e.target.closest('a')) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+}
+
+// Demo-only signup form confirmation
+function initStartForm() {
+  const form = document.getElementById('start-form');
+  const confirmNote = document.getElementById('start-confirm');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (confirmNote) confirmNote.hidden = false;
+    form.reset();
+  });
+}
 
 // Solutions
 function populateSolutions(services){
@@ -122,7 +147,6 @@ function initTheme() {
     setTheme(!isDark);
   });
 
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const savedTheme = localStorage.getItem('theme');
-  setTheme(savedTheme ? savedTheme === 'dark' : prefersDark);
+  // Theme was already applied pre-paint in index.html; only sync the icon here.
+  themeToggle.innerHTML = document.documentElement.classList.contains('dark') ? sunIcon : moonIcon;
 }

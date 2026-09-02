@@ -15,6 +15,7 @@ async function handleImage(imageBase64) {
     const apiKey = await figma.clientStorage.getAsync('GEMINI_API_KEY');
     if (!apiKey) {
       figma.notify('Set your Gemini API key first.');
+      figma.ui.postMessage({ type: 'convert-result', ok: false });
       return;
     }
 
@@ -33,20 +34,30 @@ async function handleImage(imageBase64) {
     };
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-vision:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(request)
+        body: JSON.stringify({
+          ...request,
+          generationConfig: { responseMimeType: 'application/json' }
+        })
       }
     );
     const data = await response.json();
     const layout = extractLayout(data);
+    if (!layout) {
+      figma.notify('Layout not detected');
+      figma.ui.postMessage({ type: 'convert-result', ok: false });
+      return;
+    }
     await buildNodes(layout);
     figma.notify('Design generated');
+    figma.ui.postMessage({ type: 'convert-result', ok: true });
   } catch (err) {
     console.error(err);
     figma.notify('Unable to generate design');
+    figma.ui.postMessage({ type: 'convert-result', ok: false });
   }
 }
 
