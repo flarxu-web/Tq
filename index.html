@@ -6,6 +6,15 @@
   <title>Azure-like Template — Tq Demo</title>
   <meta name="description" content="A responsive HTML/CSS/JS template inspired by Azure marketing pages. Includes long demo content and sample data." />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Apply saved/system theme before first paint to avoid a light-mode flash
+    try {
+      var t = localStorage.getItem('theme');
+      if ((t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <!-- Top navigation -->
@@ -173,7 +182,7 @@
       </div>
 
       <div class="more-link">
-        <a href="#blog-archive" class="link">View blog archive →</a>
+        <a href="#blog" class="link">View blog archive →</a>
       </div>
     </div>
   </section>
@@ -213,8 +222,23 @@
     </div>
   </section>
 
+  <!-- Call to action -->
+  <section id="get-started" class="section">
+    <div class="container cta-inner">
+      <h2 class="section-title">Get started in minutes</h2>
+      <p class="section-sub">Create a free account and deploy your first workload today.</p>
+      <form id="start-form" class="cta-form">
+        <label class="visually-hidden" for="start-email">Work email</label>
+        <input id="start-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+        <button class="btn-primary" type="submit">Start free</button>
+      </form>
+      <p id="start-confirm" class="cta-note muted" hidden>Thanks! This demo doesn't create accounts — check the <a class="link" href="#docs">Docs</a> to get started.</p>
+      <p class="cta-note muted">Prefer to talk? <a class="link" href="#contact">Contact sales</a></p>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer" id="contact">
     <div class="container footer-inner">
       <div class="footer-col">
         <a class="brand" href="#">Tq<span class="brand-accent">Cloud</span></a>
@@ -243,7 +267,7 @@
         <h4>Resources</h4>
         <ul>
           <li><a href="#blog">Blog</a></li>
-          <li><a href="#support">Support</a></li>
+          <li><a href="#docs">Support</a></li>
           <li><a href="#legal">Legal</a></li>
         </ul>
       </div>

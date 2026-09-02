@@ -250,38 +250,3 @@
     }
   ]
 }
-````markdown name=README.md
-```markdown
-# Tq Demo — Azure-like Static Template
-
-This repository contains a responsive HTML/CSS/JS marketing template inspired by Azure's marketing pages. It includes long demo content and a JSON file with full demo data to populate sections (solutions, blog posts, testimonials, FAQs).
-
-Files included:
-- `index.html` — main demo page
-- `styles.css` — styling and responsive rules
-- `scripts.js` — small client-side script to load `demo-data.json` and populate sections
-- `demo-data.json` — long demo dataset (services, blog posts, testimonials, faqs)
-
-How to use
-1. Clone or download the repo.
-2. Serve the files from a static server (some browsers block fetch requests from `file://`):
-   - Quick Python server:
-     - Python 3: `python -m http.server 8000`
-     - Python 2: `python -m SimpleHTTPServer 8000`
-   - Or use VS Code Live Server extension.
-3. Open `http://localhost:8000` in your browser.
-
-Customize
-- Edit `demo-data.json` to change the populated content.
-- Update `styles.css` to match your brand colors and typography.
-- Replace `index.html` markup sections or replicate components to build additional pages.
-
-Accessibility & performance
-- This demo uses semantic elements (header, nav, section).
-- For production, optimize images, add meta tags for sharing, and implement server-side rendering if required.
-
-License
-- This is a demo template. Use freely for prototypes and demos. No warranty — inspect before production use.
-
-Want changes?
-- If you'd like variants (dark mode, additional pages, Tailwind/Bootstrap versions, or a React/Vue port), tell me what you prefer and I can generate the files.
